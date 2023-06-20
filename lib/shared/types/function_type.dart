@@ -1,0 +1,1 @@
+typedef LabelFunction<T> = String Function(T item);
