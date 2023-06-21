@@ -97,15 +97,33 @@ class TypicodeRemoteDataSourceImplUsingGetConnect
   TypicodeRemoteDataSourceImplUsingGetConnect(this.client);
 
   @override
-  Future<GetAllPostsResponse> getAllPosts(GetAllPostsParams params) {
-    // TODO: implement getAllPosts
-    throw UnimplementedError();
+  Future<GetAllPostsResponse> getAllPosts(GetAllPostsParams params) async {
+    try {
+      final response = await client.get(
+        APIUrl.getAllPosts,
+      );
+
+      final List<dynamic> responseData = response.body;
+      final data = GetAllPostsResponse.fromJson(responseData);
+      return data;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override
-  Future<GetPostByIdResponse> getPostById(GetPostByIdParams params) {
-    // TODO: implement getPostById
-    throw UnimplementedError();
+  Future<GetPostByIdResponse> getPostById(GetPostByIdParams params) async {
+    try {
+      final response = await client.get(
+        "${APIUrl.getPostById}/${params.id}",
+      );
+
+      final Map<String, dynamic> responseData = response.body;
+      final data = GetPostByIdResponse.fromJson(responseData);
+      return data;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override
@@ -115,21 +133,15 @@ class TypicodeRemoteDataSourceImplUsingGetConnect
         "${APIUrl.getTodoById}/${params.id}",
       );
 
-      final Map<String, dynamic> responseData = response.body;
-      final data = GetTodoByIdResponse.fromJson(responseData);
-      return data;
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = response.body;
+        final data = GetTodoByIdResponse.fromJson(responseData);
+        return data;
+      } else {
+        throw ServerExceptions("");
+      }
     } catch (e) {
       rethrow;
     }
-    // } on DioError catch (e) {
-    //   if (e.type == DioErrorType.response) {
-    //     throw ServerExceptions(WarningMessage.somethingWentWrong);
-    //   } else if (e.type == DioErrorType.other &&
-    //       e.message.contains("SocketException")) {
-    //     throw const SocketException('');
-    //   } else {
-    //     throw ServerExceptions(WarningMessage.somethingWentWrong);
-    //   }
-    // }
   }
 }

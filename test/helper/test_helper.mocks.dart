@@ -3,13 +3,16 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i12;
+import 'dart:async' as _i13;
 
 import 'package:dartz/dartz.dart' as _i3;
+import 'package:get/get.dart' as _i11;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:my_getx_app/data/data_sources/remote/typicode_remote_data_source.dart'
     as _i6;
 import 'package:my_getx_app/data/interceptors/general_interceptor.dart' as _i10;
+import 'package:my_getx_app/data/interceptors/get_conect_interceptor.dart'
+    as _i18;
 import 'package:my_getx_app/data/models/response/typicode/get_all_posts_response.dart'
     as _i9;
 import 'package:my_getx_app/data/models/response/typicode/get_post_by_id_response.dart'
@@ -17,18 +20,18 @@ import 'package:my_getx_app/data/models/response/typicode/get_post_by_id_respons
 import 'package:my_getx_app/data/models/response/typicode/get_todo_by_id_response.dart'
     as _i7;
 import 'package:my_getx_app/data/repositories/typicode_repository_impl.dart'
-    as _i16;
+    as _i17;
 import 'package:my_getx_app/domain/entities/post_entity.dart' as _i5;
 import 'package:my_getx_app/domain/entities/todo_entity.dart' as _i4;
 import 'package:my_getx_app/domain/repositories/typicode_repository.dart'
     as _i2;
 import 'package:my_getx_app/domain/use_cases/typicode/get_all_posts.dart'
-    as _i15;
+    as _i16;
 import 'package:my_getx_app/domain/use_cases/typicode/get_post_by_id.dart'
-    as _i14;
+    as _i15;
 import 'package:my_getx_app/domain/use_cases/typicode/get_todo_by_id.dart'
-    as _i11;
-import 'package:my_getx_app/shared/error/failure.dart' as _i13;
+    as _i12;
+import 'package:my_getx_app/shared/error/failure.dart' as _i14;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -136,10 +139,73 @@ class _FakeGeneralDio_8 extends _i1.SmartFake implements _i10.GeneralDio {
         );
 }
 
+class _FakeDuration_9 extends _i1.SmartFake implements Duration {
+  _FakeDuration_9(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeGetHttpClient_10 extends _i1.SmartFake
+    implements _i11.GetHttpClient {
+  _FakeGetHttpClient_10(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeInternalFinalCallback_11<T> extends _i1.SmartFake
+    implements _i11.InternalFinalCallback<T> {
+  _FakeInternalFinalCallback_11(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeResponse_12<T> extends _i1.SmartFake implements _i11.Response<T> {
+  _FakeResponse_12(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeGetSocket_13 extends _i1.SmartFake implements _i11.GetSocket {
+  _FakeGetSocket_13(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeGraphQLResponse_14<T> extends _i1.SmartFake
+    implements _i11.GraphQLResponse<T> {
+  _FakeGraphQLResponse_14(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [GetTodoById].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetTodoById extends _i1.Mock implements _i11.GetTodoById {
+class MockGetTodoById extends _i1.Mock implements _i12.GetTodoById {
   MockGetTodoById() {
     _i1.throwOnMissingStub(this);
   }
@@ -153,29 +219,29 @@ class MockGetTodoById extends _i1.Mock implements _i11.GetTodoById {
         ),
       ) as _i2.TypicodeRepository);
   @override
-  _i12.Future<_i3.Either<_i13.Failure, _i4.TodoEntity>> call(
-          _i11.GetTodoByIdParams? params) =>
+  _i13.Future<_i3.Either<_i14.Failure, _i4.TodoEntity>> call(
+          _i12.GetTodoByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #call,
           [params],
         ),
         returnValue:
-            _i12.Future<_i3.Either<_i13.Failure, _i4.TodoEntity>>.value(
-                _FakeEither_1<_i13.Failure, _i4.TodoEntity>(
+            _i13.Future<_i3.Either<_i14.Failure, _i4.TodoEntity>>.value(
+                _FakeEither_1<_i14.Failure, _i4.TodoEntity>(
           this,
           Invocation.method(
             #call,
             [params],
           ),
         )),
-      ) as _i12.Future<_i3.Either<_i13.Failure, _i4.TodoEntity>>);
+      ) as _i13.Future<_i3.Either<_i14.Failure, _i4.TodoEntity>>);
 }
 
 /// A class which mocks [GetPostById].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetPostById extends _i1.Mock implements _i14.GetPostById {
+class MockGetPostById extends _i1.Mock implements _i15.GetPostById {
   MockGetPostById() {
     _i1.throwOnMissingStub(this);
   }
@@ -189,29 +255,29 @@ class MockGetPostById extends _i1.Mock implements _i14.GetPostById {
         ),
       ) as _i2.TypicodeRepository);
   @override
-  _i12.Future<_i3.Either<_i13.Failure, _i5.PostEntity>> call(
-          _i14.GetPostByIdParams? params) =>
+  _i13.Future<_i3.Either<_i14.Failure, _i5.PostEntity>> call(
+          _i15.GetPostByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #call,
           [params],
         ),
         returnValue:
-            _i12.Future<_i3.Either<_i13.Failure, _i5.PostEntity>>.value(
-                _FakeEither_1<_i13.Failure, _i5.PostEntity>(
+            _i13.Future<_i3.Either<_i14.Failure, _i5.PostEntity>>.value(
+                _FakeEither_1<_i14.Failure, _i5.PostEntity>(
           this,
           Invocation.method(
             #call,
             [params],
           ),
         )),
-      ) as _i12.Future<_i3.Either<_i13.Failure, _i5.PostEntity>>);
+      ) as _i13.Future<_i3.Either<_i14.Failure, _i5.PostEntity>>);
 }
 
 /// A class which mocks [GetAllPosts].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetAllPosts extends _i1.Mock implements _i15.GetAllPosts {
+class MockGetAllPosts extends _i1.Mock implements _i16.GetAllPosts {
   MockGetAllPosts() {
     _i1.throwOnMissingStub(this);
   }
@@ -225,23 +291,23 @@ class MockGetAllPosts extends _i1.Mock implements _i15.GetAllPosts {
         ),
       ) as _i2.TypicodeRepository);
   @override
-  _i12.Future<_i3.Either<_i13.Failure, List<_i5.PostEntity>>> call(
-          _i15.GetAllPostsParams? params) =>
+  _i13.Future<_i3.Either<_i14.Failure, List<_i5.PostEntity>>> call(
+          _i16.GetAllPostsParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #call,
           [params],
         ),
         returnValue:
-            _i12.Future<_i3.Either<_i13.Failure, List<_i5.PostEntity>>>.value(
-                _FakeEither_1<_i13.Failure, List<_i5.PostEntity>>(
+            _i13.Future<_i3.Either<_i14.Failure, List<_i5.PostEntity>>>.value(
+                _FakeEither_1<_i14.Failure, List<_i5.PostEntity>>(
           this,
           Invocation.method(
             #call,
             [params],
           ),
         )),
-      ) as _i12.Future<_i3.Either<_i13.Failure, List<_i5.PostEntity>>>);
+      ) as _i13.Future<_i3.Either<_i14.Failure, List<_i5.PostEntity>>>);
 }
 
 /// A class which mocks [TypicodeRepository].
@@ -254,53 +320,53 @@ class MockTypicodeRepository extends _i1.Mock
   }
 
   @override
-  _i12.Future<_i4.TodoEntity> getTodoById(_i11.GetTodoByIdParams? params) =>
+  _i13.Future<_i4.TodoEntity> getTodoById(_i12.GetTodoByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getTodoById,
           [params],
         ),
-        returnValue: _i12.Future<_i4.TodoEntity>.value(_FakeTodoEntity_2(
+        returnValue: _i13.Future<_i4.TodoEntity>.value(_FakeTodoEntity_2(
           this,
           Invocation.method(
             #getTodoById,
             [params],
           ),
         )),
-      ) as _i12.Future<_i4.TodoEntity>);
+      ) as _i13.Future<_i4.TodoEntity>);
   @override
-  _i12.Future<_i5.PostEntity> getPostById(_i14.GetPostByIdParams? params) =>
+  _i13.Future<_i5.PostEntity> getPostById(_i15.GetPostByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getPostById,
           [params],
         ),
-        returnValue: _i12.Future<_i5.PostEntity>.value(_FakePostEntity_3(
+        returnValue: _i13.Future<_i5.PostEntity>.value(_FakePostEntity_3(
           this,
           Invocation.method(
             #getPostById,
             [params],
           ),
         )),
-      ) as _i12.Future<_i5.PostEntity>);
+      ) as _i13.Future<_i5.PostEntity>);
   @override
-  _i12.Future<List<_i5.PostEntity>> getAllPosts(
-          _i15.GetAllPostsParams? params) =>
+  _i13.Future<List<_i5.PostEntity>> getAllPosts(
+          _i16.GetAllPostsParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllPosts,
           [params],
         ),
         returnValue:
-            _i12.Future<List<_i5.PostEntity>>.value(<_i5.PostEntity>[]),
-      ) as _i12.Future<List<_i5.PostEntity>>);
+            _i13.Future<List<_i5.PostEntity>>.value(<_i5.PostEntity>[]),
+      ) as _i13.Future<List<_i5.PostEntity>>);
 }
 
 /// A class which mocks [TypicodeRepositoryImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockTypicodeRepositoryImpl extends _i1.Mock
-    implements _i16.TypicodeRepositoryImpl {
+    implements _i17.TypicodeRepositoryImpl {
   MockTypicodeRepositoryImpl() {
     _i1.throwOnMissingStub(this);
   }
@@ -314,46 +380,46 @@ class MockTypicodeRepositoryImpl extends _i1.Mock
         ),
       ) as _i6.TypicodeRemoteDataSource);
   @override
-  _i12.Future<_i4.TodoEntity> getTodoById(_i11.GetTodoByIdParams? params) =>
+  _i13.Future<_i4.TodoEntity> getTodoById(_i12.GetTodoByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getTodoById,
           [params],
         ),
-        returnValue: _i12.Future<_i4.TodoEntity>.value(_FakeTodoEntity_2(
+        returnValue: _i13.Future<_i4.TodoEntity>.value(_FakeTodoEntity_2(
           this,
           Invocation.method(
             #getTodoById,
             [params],
           ),
         )),
-      ) as _i12.Future<_i4.TodoEntity>);
+      ) as _i13.Future<_i4.TodoEntity>);
   @override
-  _i12.Future<_i5.PostEntity> getPostById(_i14.GetPostByIdParams? params) =>
+  _i13.Future<_i5.PostEntity> getPostById(_i15.GetPostByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getPostById,
           [params],
         ),
-        returnValue: _i12.Future<_i5.PostEntity>.value(_FakePostEntity_3(
+        returnValue: _i13.Future<_i5.PostEntity>.value(_FakePostEntity_3(
           this,
           Invocation.method(
             #getPostById,
             [params],
           ),
         )),
-      ) as _i12.Future<_i5.PostEntity>);
+      ) as _i13.Future<_i5.PostEntity>);
   @override
-  _i12.Future<List<_i5.PostEntity>> getAllPosts(
-          _i15.GetAllPostsParams? params) =>
+  _i13.Future<List<_i5.PostEntity>> getAllPosts(
+          _i16.GetAllPostsParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllPosts,
           [params],
         ),
         returnValue:
-            _i12.Future<List<_i5.PostEntity>>.value(<_i5.PostEntity>[]),
-      ) as _i12.Future<List<_i5.PostEntity>>);
+            _i13.Future<List<_i5.PostEntity>>.value(<_i5.PostEntity>[]),
+      ) as _i13.Future<List<_i5.PostEntity>>);
 }
 
 /// A class which mocks [TypicodeRemoteDataSource].
@@ -366,14 +432,14 @@ class MockTypicodeRemoteDataSource extends _i1.Mock
   }
 
   @override
-  _i12.Future<_i7.GetTodoByIdResponse> getTodoById(
-          _i11.GetTodoByIdParams? params) =>
+  _i13.Future<_i7.GetTodoByIdResponse> getTodoById(
+          _i12.GetTodoByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getTodoById,
           [params],
         ),
-        returnValue: _i12.Future<_i7.GetTodoByIdResponse>.value(
+        returnValue: _i13.Future<_i7.GetTodoByIdResponse>.value(
             _FakeGetTodoByIdResponse_5(
           this,
           Invocation.method(
@@ -381,16 +447,16 @@ class MockTypicodeRemoteDataSource extends _i1.Mock
             [params],
           ),
         )),
-      ) as _i12.Future<_i7.GetTodoByIdResponse>);
+      ) as _i13.Future<_i7.GetTodoByIdResponse>);
   @override
-  _i12.Future<_i8.GetPostByIdResponse> getPostById(
-          _i14.GetPostByIdParams? params) =>
+  _i13.Future<_i8.GetPostByIdResponse> getPostById(
+          _i15.GetPostByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getPostById,
           [params],
         ),
-        returnValue: _i12.Future<_i8.GetPostByIdResponse>.value(
+        returnValue: _i13.Future<_i8.GetPostByIdResponse>.value(
             _FakeGetPostByIdResponse_6(
           this,
           Invocation.method(
@@ -398,16 +464,16 @@ class MockTypicodeRemoteDataSource extends _i1.Mock
             [params],
           ),
         )),
-      ) as _i12.Future<_i8.GetPostByIdResponse>);
+      ) as _i13.Future<_i8.GetPostByIdResponse>);
   @override
-  _i12.Future<_i9.GetAllPostsResponse> getAllPosts(
-          _i15.GetAllPostsParams? params) =>
+  _i13.Future<_i9.GetAllPostsResponse> getAllPosts(
+          _i16.GetAllPostsParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllPosts,
           [params],
         ),
-        returnValue: _i12.Future<_i9.GetAllPostsResponse>.value(
+        returnValue: _i13.Future<_i9.GetAllPostsResponse>.value(
             _FakeGetAllPostsResponse_7(
           this,
           Invocation.method(
@@ -415,7 +481,7 @@ class MockTypicodeRemoteDataSource extends _i1.Mock
             [params],
           ),
         )),
-      ) as _i12.Future<_i9.GetAllPostsResponse>);
+      ) as _i13.Future<_i9.GetAllPostsResponse>);
 }
 
 /// A class which mocks [TypicodeRemoteDataSourceImpl].
@@ -436,14 +502,14 @@ class MockTypicodeRemoteDataSourceImpl extends _i1.Mock
         ),
       ) as _i10.GeneralDio);
   @override
-  _i12.Future<_i7.GetTodoByIdResponse> getTodoById(
-          _i11.GetTodoByIdParams? params) =>
+  _i13.Future<_i7.GetTodoByIdResponse> getTodoById(
+          _i12.GetTodoByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getTodoById,
           [params],
         ),
-        returnValue: _i12.Future<_i7.GetTodoByIdResponse>.value(
+        returnValue: _i13.Future<_i7.GetTodoByIdResponse>.value(
             _FakeGetTodoByIdResponse_5(
           this,
           Invocation.method(
@@ -451,16 +517,16 @@ class MockTypicodeRemoteDataSourceImpl extends _i1.Mock
             [params],
           ),
         )),
-      ) as _i12.Future<_i7.GetTodoByIdResponse>);
+      ) as _i13.Future<_i7.GetTodoByIdResponse>);
   @override
-  _i12.Future<_i8.GetPostByIdResponse> getPostById(
-          _i14.GetPostByIdParams? params) =>
+  _i13.Future<_i8.GetPostByIdResponse> getPostById(
+          _i15.GetPostByIdParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getPostById,
           [params],
         ),
-        returnValue: _i12.Future<_i8.GetPostByIdResponse>.value(
+        returnValue: _i13.Future<_i8.GetPostByIdResponse>.value(
             _FakeGetPostByIdResponse_6(
           this,
           Invocation.method(
@@ -468,16 +534,16 @@ class MockTypicodeRemoteDataSourceImpl extends _i1.Mock
             [params],
           ),
         )),
-      ) as _i12.Future<_i8.GetPostByIdResponse>);
+      ) as _i13.Future<_i8.GetPostByIdResponse>);
   @override
-  _i12.Future<_i9.GetAllPostsResponse> getAllPosts(
-          _i15.GetAllPostsParams? params) =>
+  _i13.Future<_i9.GetAllPostsResponse> getAllPosts(
+          _i16.GetAllPostsParams? params) =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllPosts,
           [params],
         ),
-        returnValue: _i12.Future<_i9.GetAllPostsResponse>.value(
+        returnValue: _i13.Future<_i9.GetAllPostsResponse>.value(
             _FakeGetAllPostsResponse_7(
           this,
           Invocation.method(
@@ -485,5 +551,586 @@ class MockTypicodeRemoteDataSourceImpl extends _i1.Mock
             [params],
           ),
         )),
-      ) as _i12.Future<_i9.GetAllPostsResponse>);
+      ) as _i13.Future<_i9.GetAllPostsResponse>);
+}
+
+/// A class which mocks [GetConnectApiClient].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetConnectApiClient extends _i1.Mock
+    implements _i18.GetConnectApiClient {
+  MockGetConnectApiClient() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  bool get allowAutoSignedCert => (super.noSuchMethod(
+        Invocation.getter(#allowAutoSignedCert),
+        returnValue: false,
+      ) as bool);
+  @override
+  set allowAutoSignedCert(bool? _allowAutoSignedCert) => super.noSuchMethod(
+        Invocation.setter(
+          #allowAutoSignedCert,
+          _allowAutoSignedCert,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get userAgent => (super.noSuchMethod(
+        Invocation.getter(#userAgent),
+        returnValue: '',
+      ) as String);
+  @override
+  set userAgent(String? _userAgent) => super.noSuchMethod(
+        Invocation.setter(
+          #userAgent,
+          _userAgent,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  bool get sendUserAgent => (super.noSuchMethod(
+        Invocation.getter(#sendUserAgent),
+        returnValue: false,
+      ) as bool);
+  @override
+  set sendUserAgent(bool? _sendUserAgent) => super.noSuchMethod(
+        Invocation.setter(
+          #sendUserAgent,
+          _sendUserAgent,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  set baseUrl(String? _baseUrl) => super.noSuchMethod(
+        Invocation.setter(
+          #baseUrl,
+          _baseUrl,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  String get defaultContentType => (super.noSuchMethod(
+        Invocation.getter(#defaultContentType),
+        returnValue: '',
+      ) as String);
+  @override
+  set defaultContentType(String? _defaultContentType) => super.noSuchMethod(
+        Invocation.setter(
+          #defaultContentType,
+          _defaultContentType,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  bool get followRedirects => (super.noSuchMethod(
+        Invocation.getter(#followRedirects),
+        returnValue: false,
+      ) as bool);
+  @override
+  set followRedirects(bool? _followRedirects) => super.noSuchMethod(
+        Invocation.setter(
+          #followRedirects,
+          _followRedirects,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  int get maxRedirects => (super.noSuchMethod(
+        Invocation.getter(#maxRedirects),
+        returnValue: 0,
+      ) as int);
+  @override
+  set maxRedirects(int? _maxRedirects) => super.noSuchMethod(
+        Invocation.setter(
+          #maxRedirects,
+          _maxRedirects,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  int get maxAuthRetries => (super.noSuchMethod(
+        Invocation.getter(#maxAuthRetries),
+        returnValue: 0,
+      ) as int);
+  @override
+  set maxAuthRetries(int? _maxAuthRetries) => super.noSuchMethod(
+        Invocation.setter(
+          #maxAuthRetries,
+          _maxAuthRetries,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  set defaultDecoder(_i11.Decoder<dynamic>? _defaultDecoder) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #defaultDecoder,
+          _defaultDecoder,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  Duration get timeout => (super.noSuchMethod(
+        Invocation.getter(#timeout),
+        returnValue: _FakeDuration_9(
+          this,
+          Invocation.getter(#timeout),
+        ),
+      ) as Duration);
+  @override
+  set timeout(Duration? _timeout) => super.noSuchMethod(
+        Invocation.setter(
+          #timeout,
+          _timeout,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  set trustedCertificates(
+          List<_i11.TrustedCertificate>? _trustedCertificates) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #trustedCertificates,
+          _trustedCertificates,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  set findProxy(String Function(Uri)? _findProxy) => super.noSuchMethod(
+        Invocation.setter(
+          #findProxy,
+          _findProxy,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  bool get withCredentials => (super.noSuchMethod(
+        Invocation.getter(#withCredentials),
+        returnValue: false,
+      ) as bool);
+  @override
+  set withCredentials(bool? _withCredentials) => super.noSuchMethod(
+        Invocation.setter(
+          #withCredentials,
+          _withCredentials,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  List<_i11.GetSocket> get sockets => (super.noSuchMethod(
+        Invocation.getter(#sockets),
+        returnValue: <_i11.GetSocket>[],
+      ) as List<_i11.GetSocket>);
+  @override
+  _i11.GetHttpClient get httpClient => (super.noSuchMethod(
+        Invocation.getter(#httpClient),
+        returnValue: _FakeGetHttpClient_10(
+          this,
+          Invocation.getter(#httpClient),
+        ),
+      ) as _i11.GetHttpClient);
+  @override
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
+        returnValue: false,
+      ) as bool);
+  @override
+  set sockets(List<_i11.GetSocket>? _sockets) => super.noSuchMethod(
+        Invocation.setter(
+          #sockets,
+          _sockets,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  _i11.InternalFinalCallback<void> get onStart => (super.noSuchMethod(
+        Invocation.getter(#onStart),
+        returnValue: _FakeInternalFinalCallback_11<void>(
+          this,
+          Invocation.getter(#onStart),
+        ),
+      ) as _i11.InternalFinalCallback<void>);
+  @override
+  _i11.InternalFinalCallback<void> get onDelete => (super.noSuchMethod(
+        Invocation.getter(#onDelete),
+        returnValue: _FakeInternalFinalCallback_11<void>(
+          this,
+          Invocation.getter(#onDelete),
+        ),
+      ) as _i11.InternalFinalCallback<void>);
+  @override
+  bool get initialized => (super.noSuchMethod(
+        Invocation.getter(#initialized),
+        returnValue: false,
+      ) as bool);
+  @override
+  bool get isClosed => (super.noSuchMethod(
+        Invocation.getter(#isClosed),
+        returnValue: false,
+      ) as bool);
+  @override
+  void onInit() => super.noSuchMethod(
+        Invocation.method(
+          #onInit,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  _i13.Future<_i11.Response<T>> get<T>(
+    String? url, {
+    Map<String, String>? headers,
+    String? contentType,
+    Map<String, dynamic>? query,
+    _i11.Decoder<T>? decoder,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #get,
+          [url],
+          {
+            #headers: headers,
+            #contentType: contentType,
+            #query: query,
+            #decoder: decoder,
+          },
+        ),
+        returnValue: _i13.Future<_i11.Response<T>>.value(_FakeResponse_12<T>(
+          this,
+          Invocation.method(
+            #get,
+            [url],
+            {
+              #headers: headers,
+              #contentType: contentType,
+              #query: query,
+              #decoder: decoder,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.Response<T>>);
+  @override
+  _i13.Future<_i11.Response<T>> post<T>(
+    String? url,
+    dynamic body, {
+    String? contentType,
+    Map<String, String>? headers,
+    Map<String, dynamic>? query,
+    _i11.Decoder<T>? decoder,
+    _i11.Progress? uploadProgress,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #post,
+          [
+            url,
+            body,
+          ],
+          {
+            #contentType: contentType,
+            #headers: headers,
+            #query: query,
+            #decoder: decoder,
+            #uploadProgress: uploadProgress,
+          },
+        ),
+        returnValue: _i13.Future<_i11.Response<T>>.value(_FakeResponse_12<T>(
+          this,
+          Invocation.method(
+            #post,
+            [
+              url,
+              body,
+            ],
+            {
+              #contentType: contentType,
+              #headers: headers,
+              #query: query,
+              #decoder: decoder,
+              #uploadProgress: uploadProgress,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.Response<T>>);
+  @override
+  _i13.Future<_i11.Response<T>> put<T>(
+    String? url,
+    dynamic body, {
+    String? contentType,
+    Map<String, String>? headers,
+    Map<String, dynamic>? query,
+    _i11.Decoder<T>? decoder,
+    _i11.Progress? uploadProgress,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #put,
+          [
+            url,
+            body,
+          ],
+          {
+            #contentType: contentType,
+            #headers: headers,
+            #query: query,
+            #decoder: decoder,
+            #uploadProgress: uploadProgress,
+          },
+        ),
+        returnValue: _i13.Future<_i11.Response<T>>.value(_FakeResponse_12<T>(
+          this,
+          Invocation.method(
+            #put,
+            [
+              url,
+              body,
+            ],
+            {
+              #contentType: contentType,
+              #headers: headers,
+              #query: query,
+              #decoder: decoder,
+              #uploadProgress: uploadProgress,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.Response<T>>);
+  @override
+  _i13.Future<_i11.Response<T>> patch<T>(
+    String? url,
+    dynamic body, {
+    String? contentType,
+    Map<String, String>? headers,
+    Map<String, dynamic>? query,
+    _i11.Decoder<T>? decoder,
+    _i11.Progress? uploadProgress,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #patch,
+          [
+            url,
+            body,
+          ],
+          {
+            #contentType: contentType,
+            #headers: headers,
+            #query: query,
+            #decoder: decoder,
+            #uploadProgress: uploadProgress,
+          },
+        ),
+        returnValue: _i13.Future<_i11.Response<T>>.value(_FakeResponse_12<T>(
+          this,
+          Invocation.method(
+            #patch,
+            [
+              url,
+              body,
+            ],
+            {
+              #contentType: contentType,
+              #headers: headers,
+              #query: query,
+              #decoder: decoder,
+              #uploadProgress: uploadProgress,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.Response<T>>);
+  @override
+  _i13.Future<_i11.Response<T>> request<T>(
+    String? url,
+    String? method, {
+    dynamic body,
+    String? contentType,
+    Map<String, String>? headers,
+    Map<String, dynamic>? query,
+    _i11.Decoder<T>? decoder,
+    _i11.Progress? uploadProgress,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #request,
+          [
+            url,
+            method,
+          ],
+          {
+            #body: body,
+            #contentType: contentType,
+            #headers: headers,
+            #query: query,
+            #decoder: decoder,
+            #uploadProgress: uploadProgress,
+          },
+        ),
+        returnValue: _i13.Future<_i11.Response<T>>.value(_FakeResponse_12<T>(
+          this,
+          Invocation.method(
+            #request,
+            [
+              url,
+              method,
+            ],
+            {
+              #body: body,
+              #contentType: contentType,
+              #headers: headers,
+              #query: query,
+              #decoder: decoder,
+              #uploadProgress: uploadProgress,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.Response<T>>);
+  @override
+  _i13.Future<_i11.Response<T>> delete<T>(
+    String? url, {
+    Map<String, String>? headers,
+    String? contentType,
+    Map<String, dynamic>? query,
+    _i11.Decoder<T>? decoder,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #delete,
+          [url],
+          {
+            #headers: headers,
+            #contentType: contentType,
+            #query: query,
+            #decoder: decoder,
+          },
+        ),
+        returnValue: _i13.Future<_i11.Response<T>>.value(_FakeResponse_12<T>(
+          this,
+          Invocation.method(
+            #delete,
+            [url],
+            {
+              #headers: headers,
+              #contentType: contentType,
+              #query: query,
+              #decoder: decoder,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.Response<T>>);
+  @override
+  _i11.GetSocket socket(
+    String? url, {
+    Duration? ping = const Duration(seconds: 5),
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #socket,
+          [url],
+          {#ping: ping},
+        ),
+        returnValue: _FakeGetSocket_13(
+          this,
+          Invocation.method(
+            #socket,
+            [url],
+            {#ping: ping},
+          ),
+        ),
+      ) as _i11.GetSocket);
+  @override
+  _i13.Future<_i11.GraphQLResponse<T>> query<T>(
+    String? query, {
+    String? url,
+    Map<String, dynamic>? variables,
+    Map<String, String>? headers,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #query,
+          [query],
+          {
+            #url: url,
+            #variables: variables,
+            #headers: headers,
+          },
+        ),
+        returnValue: _i13.Future<_i11.GraphQLResponse<T>>.value(
+            _FakeGraphQLResponse_14<T>(
+          this,
+          Invocation.method(
+            #query,
+            [query],
+            {
+              #url: url,
+              #variables: variables,
+              #headers: headers,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.GraphQLResponse<T>>);
+  @override
+  _i13.Future<_i11.GraphQLResponse<T>> mutation<T>(
+    String? mutation, {
+    String? url,
+    Map<String, dynamic>? variables,
+    Map<String, String>? headers,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #mutation,
+          [mutation],
+          {
+            #url: url,
+            #variables: variables,
+            #headers: headers,
+          },
+        ),
+        returnValue: _i13.Future<_i11.GraphQLResponse<T>>.value(
+            _FakeGraphQLResponse_14<T>(
+          this,
+          Invocation.method(
+            #mutation,
+            [mutation],
+            {
+              #url: url,
+              #variables: variables,
+              #headers: headers,
+            },
+          ),
+        )),
+      ) as _i13.Future<_i11.GraphQLResponse<T>>);
+  @override
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void onReady() => super.noSuchMethod(
+        Invocation.method(
+          #onReady,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void onClose() => super.noSuchMethod(
+        Invocation.method(
+          #onClose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void $configureLifeCycle() => super.noSuchMethod(
+        Invocation.method(
+          #$configureLifeCycle,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
